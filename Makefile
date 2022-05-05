@@ -12,6 +12,11 @@ run:
 up:
 	d8s up tilt up
 
+.PHONY: down
+down:
+	d8s run tilt down
+	d8s down
+
 create-migration:
 	migrate create -ext sql -dir postgres/migrations -seq $(file)
 
