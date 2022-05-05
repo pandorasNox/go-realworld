@@ -1,7 +1,16 @@
-POSTGRESQL_URL="postgres://admin:admin@localhost:5432/conduit?sslmode=disable"
+
+# read env vars
+include .env
+export
+
+#POSTGRESQL_URL="postgres://admin:admin@localhost:5432/conduit?sslmode=disable"
 
 run:
 	go run main.go
+
+.PHONY: up
+up:
+	tilt up
 
 create-migration:
 	migrate create -ext sql -dir postgres/migrations -seq $(file)
