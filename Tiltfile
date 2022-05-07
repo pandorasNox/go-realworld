@@ -23,6 +23,13 @@ docker_build(
   ref="tests-tilt-ref",
   context=".",
   dockerfile = './hack/container-images/tests/Dockerfile',
+  target='curl-tests',
+)
+docker_build(
+  ref="tests-api-newman-tilt-ref",
+  context=".",
+  dockerfile = './hack/container-images/tests/Dockerfile',
+  target='api-newman-tests',
 )
 
 k8s_yaml(['hack/k8s/setup.yaml',])
